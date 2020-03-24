@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="br">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Meta tag Obrigatória-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        {% load static %}<!--Carregar o diretorio statc-->
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+        <!--Linka com o nosso css-->
+        {% load bootstrap %}<!--Carrega os recursos do filtro de form-->
+        <title>Cadastro</title>
+    </head>
+    <body>
+        <h2 class="container bg-dark p-3">Cadastro de Transações:</h2>
+        <form method="post" class="container bg-dark p-3"><!--Cria o formulario-->
+            {% csrf_token %}<!--Proteção - Cross Site Request Forgeries-->
+            {{ form|bootstrap }}<!--Exibe o form enviado pela view-->
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="reset" class="btn btn-secondary">Desfazer Alterações</button>
+        </form>
+    </body>
+</html>
